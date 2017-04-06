@@ -1,0 +1,223 @@
+From fb30e9a4983e6aef0dc1766aa0ca1cf45eb52a7c Mon Sep 17 00:00:00 2001
+From: Matt Hilt <matthew@matthewhilt.com>
+Date: Tue, 4 Apr 2017 13:26:11 -0400
+Subject: [PATCH] Initial helmet device tree changes
+
+Signed-off-by: Matt Hilt <matthew@matthewhilt.com>
+---
+ arch/arm/boot/dts/imx6dl-hummingboard2.dts   | 46 +++++++++++++++++++++++++
+ arch/arm/boot/dts/imx6qdl-hummingboard2.dtsi | 51 ++++++++++++++++++----------
+ 2 files changed, 79 insertions(+), 18 deletions(-)
+
+diff --git a/arch/arm/boot/dts/imx6dl-hummingboard2.dts b/arch/arm/boot/dts/imx6dl-hummingboard2.dts
+index 990b505..1a335c0 100644
+--- a/arch/arm/boot/dts/imx6dl-hummingboard2.dts
++++ b/arch/arm/boot/dts/imx6dl-hummingboard2.dts
+@@ -50,3 +50,49 @@
+ 	model = "SolidRun HummingBoard2 Solo/DualLite";
+ 	compatible = "solidrun,hummingboard2/dl", "fsl,imx6dl";
+ };
++
++&iomuxc {
++ hummingboard2 {
++ pinctrl_hummingboard2_parallel: hummingboard2_parallel {
++ fsl,pins = <
++ MX6QDL_PAD_EIM_A24__IPU1_CSI1_DATA19 0x0b0b1
++ MX6QDL_PAD_EIM_A23__IPU1_CSI1_DATA18 0x0b0b1
++ MX6QDL_PAD_EIM_A22__IPU1_CSI1_DATA17 0x0b0b1
++ MX6QDL_PAD_EIM_A21__IPU1_CSI1_DATA16 0x0b0b1
++ MX6QDL_PAD_EIM_A20__IPU1_CSI1_DATA15 0x0b0b1
++ MX6QDL_PAD_EIM_A19__IPU1_CSI1_DATA14 0x0b0b1
++ MX6QDL_PAD_EIM_A18__IPU1_CSI1_DATA13 0x0b0b1
++ MX6QDL_PAD_EIM_A17__IPU1_CSI1_DATA12 0x0b0b1
++ MX6QDL_PAD_EIM_DA11__IPU1_CSI1_HSYNC 0x0b0b1
++ MX6QDL_PAD_EIM_DA12__IPU1_CSI1_VSYNC 0x0b0b1
++ MX6QDL_PAD_EIM_A16__IPU1_CSI1_PIXCLK 0x0b0b1
++
++
++ MX6QDL_PAD_EIM_DA10__GPIO3_IO10 0x400130b1
++ MX6QDL_PAD_EIM_DA13__GPIO3_IO13 0x400130b1
++ /*MX6QDL_PAD_NANDF_CS2__CCM_CLKO2 0x130b0*/
++ >;
++ };
++ };
++};
++
++&i2c3 {
++ ov564x: ov564x@3c {
++ compatible = "ovti,ov564x";
++ reg = <0x3c>;
++ clocks = <&clks 0>;
++ clock-names = "csi_mclk";
++
++ pwn-gpios = <&gpio3 10 GPIO_ACTIVE_LOW>;
++ rst-gpios = <&gpio3 13 GPIO_ACTIVE_HIGH>;
++
++ ipu_id = <0>;
++ csi_id = <1>;
++ mclk = <24000000>;
++ mclk_source = <0>;
++
++ pinctrl-names = "default";
++ pinctrl-0 = <&pinctrl_hummingboard2_parallel>;
++ };
++};
++
+diff --git a/arch/arm/boot/dts/imx6qdl-hummingboard2.dtsi b/arch/arm/boot/dts/imx6qdl-hummingboard2.dtsi
+index eb9f3c9..f565b14 100644
+--- a/arch/arm/boot/dts/imx6qdl-hummingboard2.dtsi
++++ b/arch/arm/boot/dts/imx6qdl-hummingboard2.dtsi
+@@ -184,10 +184,20 @@
+ 	v4l2_cap_0 {
+ 		compatible = "fsl,imx6q-v4l2-capture";
+ 		ipu_id = <0>;
++		csi_id = <0>;
++		mclk_source = <0>;
++		/*mipi_camera = <0>;
++		default_input = <0>;*/
++		status = "okay";
++	};
++
++	v4l2_cap_1 {
++		compatible = "fsl,imx6q-v4l2-capture";
++		ipu_id = <0>;
+ 		csi_id = <1>;
+ 		mclk_source = <0>;
+-		mipi_camera = <1>;
+-		default_input = <0>;
++		/*mipi_camera = <0>;
++		default_input = <0>;*/
+ 		status = "okay";
+ 	};
+ 
+@@ -262,16 +272,17 @@
+ 	pinctrl-0 = <&pinctrl_hummingboard2_i2c1>;
+ 	status = "okay";
+ 
++/*
+ 	ov5640_mipi: ov5640_mipi@3c {
+ 		compatible = "ovti,ov5640_mipi";
+ 		reg = <0x3c>;
+                 clocks = <&clks IMX6QDL_CLK_CKO2>;
+                 clock-names = "csi_mclk";
+-/*
++//
+                 DOVDD-supply = <&reg_3p3v>;
+                 AVDD-supply = <&reg_3p3v>;
+                 DVDD-supply = <&reg_3p3v>;
+-*/
++//
+                 pwn-gpios = <&gpio4 14 GPIO_ACTIVE_LOW>;
+                 rst-gpios = <&gpio2 10 GPIO_ACTIVE_HIGH>;
+                 ipu_id = <0>;
+@@ -282,6 +293,7 @@
+                 pinctrl-0 = <&pinctrl_hummingboard2_mipi>;
+                 extended-buffer;
+         };
++*/
+ 
+ 	rtc: pcf8523@68 {
+ 		compatible = "nxp,pcf8523";
+@@ -350,9 +362,9 @@
+ 				 * number is : gpio number = (X-1) * 32 + Y
+ 				 */
+ 				/* DI1_PIN15 */
+-				MX6QDL_PAD_EIM_DA10__GPIO3_IO10 0x400130b1
++				/*MX6QDL_PAD_EIM_DA10__GPIO3_IO10 0x400130b1*/
+ 				/* DI1_PIN02 */
+-				MX6QDL_PAD_EIM_DA11__GPIO3_IO11 0x400130b1
++				/*MX6QDL_PAD_EIM_DA11__GPIO3_IO11 0x400130b1*/
+ 				/* DISP1_DATA00 */
+ 				MX6QDL_PAD_EIM_DA9__GPIO3_IO09 0x400130b1
+ 				/* DISP1_DATA01 */
+@@ -370,13 +382,13 @@
+ 				/* DISP1_DATA07 */
+ 				MX6QDL_PAD_EIM_DA2__GPIO3_IO02 0x400130b1
+ 				/* DI1_D0_CS */
+-				MX6QDL_PAD_EIM_DA13__GPIO3_IO13 0x400130b1
++				/*MX6QDL_PAD_EIM_DA13__GPIO3_IO13 0x400130b1*/
+ 				/* DI1_D1_CS */
+ 				MX6QDL_PAD_EIM_DA14__GPIO3_IO14 0x400130b1
+ 				/* DI1_PIN01 */
+ 				MX6QDL_PAD_EIM_DA15__GPIO3_IO15 0x400130b1
+ 				/* DI1_PIN03 */
+-				MX6QDL_PAD_EIM_DA12__GPIO3_IO12 0x400130b1
++				/*MX6QDL_PAD_EIM_DA12__GPIO3_IO12 0x400130b1*/
+ 				/* DISP1_DATA08 */
+ 				MX6QDL_PAD_EIM_DA1__GPIO3_IO01 0x400130b1
+ 				/* DISP1_DATA09 */
+@@ -386,21 +398,21 @@
+ 				/* DISP1_DATA11 */
+ 				MX6QDL_PAD_EIM_EB0__GPIO2_IO28 0x400130b1
+ 				/* DISP1_DATA12 */
+-				MX6QDL_PAD_EIM_A17__GPIO2_IO21 0x400130b1
++				/*MX6QDL_PAD_EIM_A17__GPIO2_IO21 0x400130b1*/
+ 				/* DISP1_DATA13 */
+-				MX6QDL_PAD_EIM_A18__GPIO2_IO20 0x400130b1
++				/*MX6QDL_PAD_EIM_A18__GPIO2_IO20 0x400130b1*/
+ 				/* DISP1_DATA14 */
+-				MX6QDL_PAD_EIM_A19__GPIO2_IO19 0x400130b1
++				/*MX6QDL_PAD_EIM_A19__GPIO2_IO19 0x400130b1*/
+ 				/* DISP1_DATA15 */
+-				MX6QDL_PAD_EIM_A20__GPIO2_IO18 0x400130b1
++				/*MX6QDL_PAD_EIM_A20__GPIO2_IO18 0x400130b1*/
+ 				/* DISP1_DATA16 */
+-				MX6QDL_PAD_EIM_A21__GPIO2_IO17 0x400130b1
++				/*MX6QDL_PAD_EIM_A21__GPIO2_IO17 0x400130b1*/
+ 				/* DISP1_DATA17 */
+-				MX6QDL_PAD_EIM_A22__GPIO2_IO16 0x400130b1
++				/*MX6QDL_PAD_EIM_A22__GPIO2_IO16 0x400130b1*/
+ 				/* DISP1_DATA18 */
+-				MX6QDL_PAD_EIM_A23__GPIO6_IO06 0x400130b1
++				/*MX6QDL_PAD_EIM_A23__GPIO6_IO06 0x400130b1*/
+ 				/* DISP1_DATA19 */
+-				MX6QDL_PAD_EIM_A24__GPIO5_IO04 0x400130b1
++				/*MX6QDL_PAD_EIM_A24__GPIO5_IO04 0x400130b1*/
+ 				/* DISP1_DATA20 */
+ 				MX6QDL_PAD_EIM_D31__GPIO3_IO31 0x400130b1
+ 				/* DISP1_DATA21 */
+@@ -410,7 +422,7 @@
+ 				/* DISP1_DATA23 */
+ 				MX6QDL_PAD_EIM_D27__GPIO3_IO27 0x400130b1
+ 				/* DI1_DISP_CLK */
+-				MX6QDL_PAD_EIM_A16__GPIO2_IO22 0x400130b1
++				/*MX6QDL_PAD_EIM_A16__GPIO2_IO22 0x400130b1*/
+ 				/* SPDIF_IN */
+ 				MX6QDL_PAD_ENET_RX_ER__GPIO1_IO24 0x400130b1
+ 				/* SPDIF_OUT */
+@@ -454,6 +466,7 @@
+ 			>;
+ 		};
+ 
++/*
+                 pinctrl_hummingboard2_mipi: hummingboard2_mipi {
+                         fsl,pins = <
+                                 MX6QDL_PAD_SD4_DAT2__GPIO2_IO10 0x4001b8b1
+@@ -461,7 +474,7 @@
+                                 MX6QDL_PAD_NANDF_CS2__CCM_CLKO2 0x130b0
+                         >;
+                 };
+-
++*/
+ 		pinctrl_hummingboard2_pcie_reset: hummingboard2-pcie-reset {
+ 			fsl,pins = <
+ 				MX6QDL_PAD_SD4_DAT3__GPIO2_IO11 0x1b0b1
+@@ -610,6 +623,7 @@
+ 	};
+ };
+ 
++/*
+ &mipi_csi {
+ 	ipu_id = <0>;
+ 	csi_id = <1>;
+@@ -618,6 +632,7 @@
+ 	mipi_dphy_clk = <0x14>;
+ 	status = "okay";
+ };
++*/
+ 
+ &pcie {
+ 	pinctrl-names = "default";
+-- 
+2.7.4
+

@@ -1,0 +1,41 @@
+From 5158c9de5a51f4a332ce907887a082ae0ea9c5c1 Mon Sep 17 00:00:00 2001
+From: Matt Hilt <matthew@matthewhilt.com>
+Date: Tue, 4 Apr 2017 13:21:04 -0400
+Subject: [PATCH] DVP ov5640 camera fix
+
+Signed-off-by: Matt Hilt <matthew@matthewhilt.com>
+---
+ drivers/media/platform/mxc/capture/Makefile | 4 ++--
+ drivers/media/platform/mxc/subdev/Makefile  | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/media/platform/mxc/capture/Makefile b/drivers/media/platform/mxc/capture/Makefile
+index 41cf400..36be1d1 100644
+--- a/drivers/media/platform/mxc/capture/Makefile
++++ b/drivers/media/platform/mxc/capture/Makefile
+@@ -6,8 +6,8 @@ ifeq ($(CONFIG_VIDEO_MXC_IPU_CAMERA),y)
+ 	obj-$(CONFIG_MXC_IPU_CSI_ENC) += ipu_csi_enc.o ipu_still.o
+ endif
+ 
+-ov5640_camera_int-objs := ov5640.o
+-obj-$(CONFIG_MXC_CAMERA_OV5640) += ov5640_camera_int.o
++ov5640_camera-objs := ov5640.o
++obj-$(CONFIG_MXC_CAMERA_OV5640) += ov5640_camera.o
+ 
+ ov5642_camera-objs := ov5642.o
+ obj-$(CONFIG_MXC_CAMERA_OV5642) += ov5642_camera.o
+diff --git a/drivers/media/platform/mxc/subdev/Makefile b/drivers/media/platform/mxc/subdev/Makefile
+index 0602ae7..9875a96 100644
+--- a/drivers/media/platform/mxc/subdev/Makefile
++++ b/drivers/media/platform/mxc/subdev/Makefile
+@@ -3,5 +3,5 @@
+ obj-$(CONFIG_VIDEO_MXC_CSI_CAMERA)	+= mx6s_capture.o
+ obj-$(CONFIG_MXC_VADC) += mxc_vadc.o
+ 
+-ov5640_camera-objs := ov5640.o
+-obj-$(CONFIG_MXC_CAMERA_OV5640) += ov5640_camera.o
++#ov5640_camera-objs := ov5640.o
++#obj-$(CONFIG_MXC_CAMERA_OV5640) += ov5640_camera.o
+-- 
+2.7.4
+

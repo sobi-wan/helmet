@@ -1,5 +1,15 @@
 require recipes-graphics/images/core-image-x11.bb
 IMAGE_INSTALL += " strace \
+			i2c-tools \
+			v4l-utils \
+			iperf3 \
+			python-core \
+			opencv \
+			opencv-samples \
+			packagegroup-core-boot ${ROOTFS_PKGMANAGE_BOOTSTRAP} udev-extraconf \
+			packagegroup-core-ssh-openssh \
+			rsync \
+			nano \
                         gstreamer1.0 gstreamer1.0-plugins-imx-meta \
                         gstreamer1.0-plugins-base-meta gstreamer1.0-plugins-good-meta \
                         gstreamer1.0-plugins-bad-meta gstreamer1.0-plugins-good \
