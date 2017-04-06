@@ -14,7 +14,11 @@ IMAGE_INSTALL += " strace \
                         alsa-utils alsa-utils-speakertest \
                         gst-fsl-plugin gst-ffmpeg\
                         gstreamer1.0-plugins-good-multifile-dev \
+                        python-subprocess \
                         "
+##removed packages
+#                        python-gst
+#                        rsync
 
 COMMERCIAL_AUDIO_PLUGINS ?= " \
 gst-plugins-ugly-mad \
@@ -33,3 +37,12 @@ gst-plugins-base-videotestsrc \
 gst-plugins-bad-fbdevsink \
 gst-plugins-good-isomp4 \
 "
+
+#PREFERRED_VERSION_gstreamer1.0 = "1.8.3"
+#PREFERRED_VERSION_gstreamer1.0-plugins-base = "1.8.3"
+#PREFERRED_VERSION_gstreamer1.0-plugins-good = "1.8.3"
+#PREFERRED_VERSION_gstreamer1.0-plugins-bad = "1.8.3"
+#PREFERRED_VERSION_gstreamer1.0-plugins-ugly = "1.8.3"
+#PREFERRED_VERSION_gstreamer1.0-libav = "1.8.3"
+#PREFERRED_VERSION_gstreamer1.0-omx = "1.8.3"
+
