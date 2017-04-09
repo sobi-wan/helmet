@@ -1,0 +1,2 @@
+update-rc.d start_josh_py defaults 100
+update-rc.d start_uploader_py defaults 100

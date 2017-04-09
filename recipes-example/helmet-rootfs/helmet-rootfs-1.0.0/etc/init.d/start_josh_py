@@ -1,0 +1,11 @@
+#!/bin/bash
+case "$1" in
+	'start')
+		CSI1_VIDEO=$(ls /sys/devices/soc0/v4l2_cap_1*/video4linux/)
+		export $CSI1_VIDEO
+		echo "Starting video capture with device: $CSI1_VIDEO"
+		python /home/root/josh.py $CSI1_VIDEO &;;
+	'stop')
+		echo "TODO: how to stop josh.py when its been autostarted.";;
+esac
+

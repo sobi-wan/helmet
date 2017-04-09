@@ -1,5 +1,5 @@
 require recipes-graphics/images/core-image-x11.bb
-IMAGE_INSTALL += " strace \
+IMAGE_INSTALL += " strace helmet-rootfs\
 			i2c-tools \
 			v4l-utils \
 			iperf3 \

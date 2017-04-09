@@ -1,0 +1,20 @@
+#!/bin/bash
+case "$1" in
+	start)
+		python /home/root/uploader.py &
+	 ;;
+	stop)
+		echo "TODO: how to stop uploader.py when its been autostarted."
+	 ;;
+	force-reload|restart)
+		$0 stop
+		$0 start
+	 ;;
+	status)
+	 ;;
+	*)
+		echo "Usag: /etc/init.d/start_uploader_py {start|stop|restart|force-reload|status}"
+		exit 1
+	 ;;
+esac
+

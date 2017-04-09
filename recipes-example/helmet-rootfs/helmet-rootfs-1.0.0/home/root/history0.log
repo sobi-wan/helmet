@@ -1,0 +1,359 @@
+    1  iwconfig
+    2  cat /etc/wpa_supplicant.conf 
+    3  cat /etc/network/interfaces 
+    4  ed
+    5  pidof --help
+    6  man pidof
+    7  vi /etc/wpa_supplicant.conf 
+    8  ifup wlan0
+    9  iwlist wlan0 scanning
+   10  vi /etc/wpa_supplicant.conf 
+   11  ifdown wlan0
+   12  ifup wlan0
+   13  iwconfig wlan0
+   14  ping google.com
+   15  ping www.google.com
+   16  ping yahoo.com
+   17  ipconfig
+   18  netstat
+   19  nm
+   20  ip
+   21  ifconfig 
+   22  in --help
+   23  ping 192.168.1.1
+   24  help
+   25  jobs 
+   26  ping google.com
+   27  ifup wlan0
+   28  ifdown wlan0
+   29  ifup wlan0
+   30  iwconfig
+   31  vi /etc/network/interfaces 
+   32  ifup wlan0
+   33  ifdown wlan0
+   34  ifup wlan0
+   35  iwconfig
+   36  reboot
+   37  cat /etc/network/interfaces 
+   38  vi /etc/network/interfaces 
+   39  vi /etc/network/interfaces 
+   40  vi /etc/wpa_supplicant.conf 
+   41  wpa_supplicant --help
+   42  wpa_passphrase --help
+   43  wpa_passphrase Verizon-SM-N930V-80C5
+   44  vi /etc/wpa_supplicant.conf 
+   45  vi /etc/wpa_supplicant.conf 
+   46  vi /etc/network/interfaces 
+   47  vi /etc/network/interfaces 
+   48  ifup wlan0
+   49  ifdown wlan0
+   50  ifup wlan0
+   51  ping google.com
+   52  ls
+   53  vi /etc/wpa_supplicant.conf 
+   54  ifdown wlan0
+   55  ifup wlan0
+   56  ping amazon.com
+   57  python
+   58  vi josh.py
+   59  python josh.py 
+   60  vi josh.py
+   61  python josh.py 
+   62  python
+   63  gst-launch-1.0 -v -e v4l2src ! autovideosink
+   64  python
+   65  vi josh.py
+   66  python josh.py 
+   67  vi josh.py
+   68  python josh.py 
+   69  vi josh.py
+   70  python josh.py 
+   71  vi josh.py
+   72  python josh.py 
+   73  vi josh.py
+   74  python josh.py 
+   75  vi josh.py
+   76  python josh.py 
+   77  vi josh.py
+   78  vi josh.py
+   79  vi josh.py
+   80  python josh.py 
+   81  vi josh.py
+   82  python josh.py 
+   83  ls
+   84  ls -l
+   85  vi josh.py
+   86  ls -l
+   87  python josh.py 
+   88  jobs
+   89  jobs --help
+   90  fg 2
+   91  jobs
+   92  kill %1
+   93  jobs
+   94  ping --help
+   95  ping amazon.com
+   96  jobs
+   97  ls
+   98  vi josh.py
+   99  python josh.py 
+  100  vi josh.py
+  101  python josh.py 
+  102  ls
+  103  ls -l
+  104  python josh.py 
+  105  ls
+  106  ping joshs-mbp
+  107  ssh joshwest@joshs-mbp
+  108  scp --help
+  109  ls
+  110  ssh joshwest@joshs-mbp
+  111  scp -p usbcam0*.h* joshwest@josh-mbp:hummingboard/
+  112  scp -p usbcam0*.h* joshwest@joshs-mbp:hummingboard/
+  113  ls /etc/init.d/
+  114  ps -fp 1
+  115  ls
+  116  rm usbcam0*.*
+  117  ls
+  118  ls /bin/
+  119  echo hi
+  120  vi start_josh_py
+  121  chmod +x start_josh_py 
+  122  mv start_josh_py /etc/init.d/
+  123  ls /etc/init.d
+  124  checkcfg
+  125  chk
+  126  crontab
+  127  reboot
+  128  ls
+  129  ls /
+  130  ls /
+  131  vi /etc/init.d/start_josh_py 
+  132  vi josh.py 
+  133  ls /
+  134  ls /us
+  135  ls /usr
+  136  ls /var/
+  137  ls /media/
+  138  vi josh.py 
+  139  whereis python
+  140  vi josh.py 
+  141  vi josh.py 
+  142  chmod +x josh.py 
+  143  ./josh.py 
+  144  ls /media/
+  145  ls /
+  146  ls -l /*.h264
+  147  time
+  148  systime
+  149  times
+  150  chcpu --help
+  151  ls -l /*.h264
+  152  ls -l /*.h264
+  153  ls -l /*.h264
+  154  df
+  155  gst-launch-1.0 -v multifilesrc location=/usbcam%03d.h264 caps="video/x-h264\,\ stream-format\=\(string\)byte-stream\,\ alignment\=\(string\)au\,\ parsed\=\(boolean\)true\,\ width\=\(int\)640\,\ height\=\(int\)360\,\ pixel-aspect-ratio\=\(fraction\)1/1\,\ framerate\=\(fraction\)10/1" ! h264parse ! queue ! decodebin ! autovideosink
+  156  ls -l /*.h264
+  157  df
+  158  df
+  159  ls -l /*.h264
+  160  ls -l /*.h264
+  161  rm /usbcam0*.*
+  162  df
+  163  ls -l /*.h264
+  164  ls -l /*.h264
+  165  ls
+  166  ls
+  167  df
+  168  ls/
+  169  ls /
+  170  ls -l /
+  171  ls -l /
+  172  iwconfig
+  173  udhcpc wlan0
+  174  vi /etc/wpa_supplicant.conf 
+  175  ifdown wlan0
+  176  ifup wlan0
+  177  ls -l /usbc*.*
+  178  ls -l /usbc*.*
+  179  udhcpc wlan0
+  180  reboot
+  181  ls /
+  182  rm /usbcam1*.*
+  183  iwconfig
+  184  ping google.com
+  185  ls -l /usbc*.*
+  186  ls -l /usbc*.*
+  187  rm /usbcam*.*
+  188  ls /media/
+  189  ls -l /media/
+  190  ls -l /media/
+  191  vi josh.py 
+  192  ./josh.py 
+  193  vi josh.py 
+  194  vi josh.py 
+  195  ./josh.py 
+  196  vi josh.py 
+  197  ./josh.py 
+  198  jobs
+  199  ps
+  200  ls -l /media/
+  201  ps
+  202  kill --help
+  203  kill 610
+  204  ps
+  205  ls -l /media/
+  206  ls -l /media/
+  207  ls -l /media/
+  208  ps
+  209  kill -9 390
+  210  ps
+  211  ls -l /media/ | tail -4
+  212  ls -l /media/ | tail -4
+  213  kill -9 406
+  214  ls -l /media/ | tail -4
+  215  ls -l /media/ | tail -4
+  216  gst-launch-1.0 v4l2src ! autovideosink
+  217  ./josh.py 
+  218  ps | tail
+  219  ls -l /media/ | tail -4
+  220  ls -l /media/ | head -4
+  221  ls -l /media/ | head
+  222  kill -9 653
+  223  rm /media/*.h*
+  224  ls /media/
+  225  vi josh.py 
+  226  python
+  227  ./josh.py 
+  228  bg 1
+  229  ps -aux
+  230  ps
+  231  ls /media/
+  232  ls /media/
+  233  ls /media/
+  234  ls /media/
+  235  ls /media/
+  236  ls -l /media/
+  237  ls -l /media/
+  238  ls -l /media/
+  239  ps |tail
+  240  kill 717
+  241  ps |tail
+  242  vi josh.py 
+  243  rm /media/*.h*
+  244  ./josh.py 
+  245  bg 1
+  246  ls -l /media/ | tail -4
+  247  fg 1
+  248  ./josh.py 
+  249  vi josh.py 
+  250  ./josh.py 
+  251  ls -l /media/ | tail -4
+  252  python
+  253  dmesg | tail
+  254  lslslocks
+  255  lslocks
+  256  ./josh.py 
+  257  bg 1
+  258  lslocks 
+  259  cd /media/
+  260  lslo
+  261  lslocks 
+  262  ls
+  263  ls -l
+  264  lsof
+  265  ls
+  266  ls -l
+  267  ls -l
+  268  ls --help
+  269  ls
+  270  jobs
+  271  fg 1
+  272  cd
+  273  vi josh.py 
+  274  rm /media/*.h*
+  275  ./josh.py 
+  276  bg 1
+  277  ls /media/
+  278  fg 1
+  279  vi josh.py 
+  280  ./josh.py &
+  281  ls /media/
+  282  ls -l /media/
+  283  ls -l /media/
+  284  ls -l /media/
+  285  ls -l /media/
+  286  ls -l /media/
+  287  fg 1
+  288  fg 1
+  289  vi josh.py 
+  290  ls /
+  291  python
+  292  ls
+  293  ls -l
+  294  vi josh.py 
+  295  ./josh.py &
+  296  ls
+  297  rm testing 
+  298  ls /media/
+  299  ls /
+  300  find / -name "trilobite"
+  301  vi josh.py 
+  302  jobs
+  303  fg 1
+  304  ./josh.py &
+  305  fg 1
+  306  vi josh.py 
+  307  ./josh.py
+  308  vi josh.py 
+  309  ./josh.py
+  310  ./josh.py
+  311  fg 1
+  312  bg 1
+  313  ls /media/
+  314  ls -l /media/
+  315  ls -l /media/
+  316  ls -l /media/
+  317  ls -l /media/
+  318  ls -l /media/
+  319  ls -lt /media/
+  320  ls -ltu /media/
+  321  ls -lT /media/
+  322  ls -ls /media/
+  323  ls -xlt /media/
+  324  vi josh.py 
+  325  python
+  326  vi josh.py 
+  327  ./p
+  328  ./josh.py 
+  329  vi josh.py 
+  330  fg 1
+  331  vi josh.py 
+  332  ls /media/
+  333  rm /media/usbcam0*.*
+  334  ls /media/
+  335  vi josh.py 
+  336  ./josh.py 
+  337  ls -l /media/
+  338  ls -tl /media/
+  339  vi josh.py 
+  340  ./josh.py 
+  341  ls -tl /media/
+  342  ./josh.py 
+  343  vi josh.py 
+  344  ./josh.py 
+  345  bg 1
+  346  ls -lt /media/
+  347  ls -lt /media/
+  348  ls -lt /media/
+  349  ls -lt /media/
+  350  ls -lt /media/
+  351  ls -lt /media/
+  352  ls -lt /media/
+  353  ls -lt /media/
+  354  ls -lt /media/
+  355  fg 1
+  356  vi josh.py 
+  357  scp -p /media/usbcam0*.h* joshwest@joshs-mbp:hummingboard/
+  358  history 
+  359  history > history0.log
